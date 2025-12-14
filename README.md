@@ -29,9 +29,10 @@ const client = new Rocktick({
   apiKey: process.env['ROCKTICK_API_KEY'], // This is the default and can be omitted
 });
 
-const crons = await client.cron.list();
+const page = await client.cron.list();
+const cronListResponse = page.data[0];
 
-console.log(crons.count);
+console.log(cronListResponse.id);
 ```
 
 ### Request & Response types
@@ -46,7 +47,7 @@ const client = new Rocktick({
   apiKey: process.env['ROCKTICK_API_KEY'], // This is the default and can be omitted
 });
 
-const crons: Rocktick.CronListResponse = await client.cron.list();
+const [cronListResponse]: [Rocktick.CronListResponse] = await client.cron.list();
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -59,7 +60,7 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const crons = await client.cron.list().catch(async (err) => {
+const page = await client.cron.list().catch(async (err) => {
   if (err instanceof Rocktick.APIError) {
     console.log(err.status); // 400
     console.log(err.name); // BadRequestError
@@ -143,9 +144,11 @@ const response = await client.cron.list().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: crons, response: raw } = await client.cron.list().withResponse();
+const { data: page, response: raw } = await client.cron.list().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(crons.count);
+for await (const cronListResponse of page) {
+  console.log(cronListResponse.id);
+}
 ```
 
 ### Logging
