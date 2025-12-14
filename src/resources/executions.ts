@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../core/resource';
-import * as ExecutionsAPI from './executions';
 import * as CronAPI from './cron';
 import { APIPromise } from '../core/api-promise';
+import { CursorPage, type CursorPageParams, PagePromise } from '../core/pagination';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
@@ -15,10 +15,15 @@ export class Executions extends APIResource {
   list(
     query: ExecutionListParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<ExecutionListResponse> {
-    return this._client.get('/api/executions', { query, ...options });
+  ): PagePromise<ExecutionListResponsesCursorPage, ExecutionListResponse> {
+    return this._client.getAPIList('/api/executions', CursorPage<ExecutionListResponse>, {
+      query,
+      ...options,
+    });
   }
 }
+
+export type ExecutionListResponsesCursorPage = CursorPage<ExecutionListResponse>;
 
 export interface Execution {
   id: string;
@@ -61,57 +66,43 @@ export interface Response {
 }
 
 export interface ExecutionListResponse {
-  count: number;
+  id: string;
 
-  data: Array<ExecutionListResponse.Data>;
+  max_retries: number;
 
-  cursor?: string | null;
+  region: string;
+
+  request: CronAPI.Request;
+
+  scheduled_at: number;
+
+  cron_job_id?: string | null;
+
+  executed_at?: number | null;
+
+  max_response_bytes?: number | null;
+
+  one_off_job_id?: string | null;
+
+  response?: Response | null;
+
+  response_error?: string | null;
+
+  retry_for?: string | null;
+
+  success?: boolean | null;
+
+  tenant_id?: string | null;
+
+  timeout_ms?: number | null;
 }
 
-export namespace ExecutionListResponse {
-  export interface Data {
-    id: string;
-
-    max_retries: number;
-
-    region: string;
-
-    request: CronAPI.Request;
-
-    scheduled_at: number;
-
-    cron_job_id?: string | null;
-
-    executed_at?: number | null;
-
-    max_response_bytes?: number | null;
-
-    one_off_job_id?: string | null;
-
-    response?: ExecutionsAPI.Response | null;
-
-    response_error?: string | null;
-
-    retry_for?: string | null;
-
-    success?: boolean | null;
-
-    tenant_id?: string | null;
-
-    timeout_ms?: number | null;
-  }
-}
-
-export interface ExecutionListParams {
+export interface ExecutionListParams extends CursorPageParams {
   completed?: boolean | null;
 
   cron_id?: string | null;
 
-  cursor?: string | null;
-
   from?: number | null;
-
-  limit?: number | null;
 
   one_off_job_id?: string | null;
 
@@ -123,6 +114,7 @@ export declare namespace Executions {
     type Execution as Execution,
     type Response as Response,
     type ExecutionListResponse as ExecutionListResponse,
+    type ExecutionListResponsesCursorPage as ExecutionListResponsesCursorPage,
     type ExecutionListParams as ExecutionListParams,
   };
 }

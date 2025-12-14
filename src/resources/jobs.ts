@@ -4,6 +4,7 @@ import { APIResource } from '../core/resource';
 import * as CronAPI from './cron';
 import * as ExecutionsAPI from './executions';
 import { APIPromise } from '../core/api-promise';
+import { CursorPage, type CursorPageParams, PagePromise } from '../core/pagination';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
@@ -20,10 +21,15 @@ export class Jobs extends APIResource {
     return this._client.post(path`/api/jobs/${jobID}`, { body, ...options });
   }
 
-  list(query: JobListParams | null | undefined = {}, options?: RequestOptions): APIPromise<JobListResponse> {
-    return this._client.get('/api/jobs', { query, ...options });
+  list(
+    query: JobListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<JobListResponsesCursorPage, JobListResponse> {
+    return this._client.getAPIList('/api/jobs', CursorPage<JobListResponse>, { query, ...options });
   }
 }
+
+export type JobListResponsesCursorPage = CursorPage<JobListResponse>;
 
 export interface OneOffJob {
   id: string;
@@ -46,33 +52,23 @@ export interface OneOffJob {
 }
 
 export interface JobListResponse {
-  count: number;
+  id: string;
 
-  data: Array<JobListResponse.Data>;
+  execute_at: number;
 
-  cursor?: string | null;
-}
+  executions: Array<ExecutionsAPI.Execution>;
 
-export namespace JobListResponse {
-  export interface Data {
-    id: string;
+  max_retries: number;
 
-    execute_at: number;
+  region: string;
 
-    executions: Array<ExecutionsAPI.Execution>;
+  request: CronAPI.Request;
 
-    max_retries: number;
+  max_response_bytes?: number | null;
 
-    region: string;
+  tenant_id?: string | null;
 
-    request: CronAPI.Request;
-
-    max_response_bytes?: number | null;
-
-    tenant_id?: string | null;
-
-    timeout_ms?: number | null;
-  }
+  timeout_ms?: number | null;
 }
 
 export interface JobCreateParams {
@@ -103,16 +99,13 @@ export interface JobUpdateParams {
   timeout_ms?: number | null;
 }
 
-export interface JobListParams {
-  cursor?: string | null;
-
-  limit?: number | null;
-}
+export interface JobListParams extends CursorPageParams {}
 
 export declare namespace Jobs {
   export {
     type OneOffJob as OneOffJob,
     type JobListResponse as JobListResponse,
+    type JobListResponsesCursorPage as JobListResponsesCursorPage,
     type JobCreateParams as JobCreateParams,
     type JobUpdateParams as JobUpdateParams,
     type JobListParams as JobListParams,
