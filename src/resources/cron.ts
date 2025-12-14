@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../core/resource';
-import * as CronAPI from './cron';
 import * as ExecutionsAPI from './executions';
 import { APIPromise } from '../core/api-promise';
+import { CursorPage, type CursorPageParams, PagePromise } from '../core/pagination';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
@@ -23,10 +23,12 @@ export class Cron extends APIResource {
   list(
     query: CronListParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<CronListResponse> {
-    return this._client.get('/api/cron', { query, ...options });
+  ): PagePromise<CronListResponsesCursorPage, CronListResponse> {
+    return this._client.getAPIList('/api/cron', CursorPage<CronListResponse>, { query, ...options });
   }
 }
+
+export type CronListResponsesCursorPage = CursorPage<CronListResponse>;
 
 export interface CronJob {
   id: string;
@@ -59,33 +61,23 @@ export interface Request {
 }
 
 export interface CronListResponse {
-  count: number;
+  id: string;
 
-  data: Array<CronListResponse.Data>;
+  executions: Array<ExecutionsAPI.Execution>;
 
-  cursor?: string | null;
-}
+  max_retries: number;
 
-export namespace CronListResponse {
-  export interface Data {
-    id: string;
+  region: string;
 
-    executions: Array<ExecutionsAPI.Execution>;
+  request: Request;
 
-    max_retries: number;
+  schedule: string;
 
-    region: string;
+  max_response_bytes?: number | null;
 
-    request: CronAPI.Request;
+  tenant_id?: string | null;
 
-    schedule: string;
-
-    max_response_bytes?: number | null;
-
-    tenant_id?: string | null;
-
-    timeout_ms?: number | null;
-  }
+  timeout_ms?: number | null;
 }
 
 export interface CronCreateParams {
@@ -116,17 +108,14 @@ export interface CronUpdateParams {
   timeout_ms?: number | null;
 }
 
-export interface CronListParams {
-  cursor?: string | null;
-
-  limit?: number | null;
-}
+export interface CronListParams extends CursorPageParams {}
 
 export declare namespace Cron {
   export {
     type CronJob as CronJob,
     type Request as Request,
     type CronListResponse as CronListResponse,
+    type CronListResponsesCursorPage as CronListResponsesCursorPage,
     type CronCreateParams as CronCreateParams,
     type CronUpdateParams as CronUpdateParams,
     type CronListParams as CronListParams,

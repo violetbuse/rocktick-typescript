@@ -153,8 +153,8 @@ export class CursorPage<Item> extends AbstractPage<Item> implements CursorPageRe
 
     return {
       ...this.options,
-      body: {
-        ...maybeObj(this.options.body),
+      query: {
+        ...maybeObj(this.options.query),
         cursor,
       },
     };
