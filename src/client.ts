@@ -62,7 +62,7 @@ import { isEmptyObj } from './internal/utils/values';
 
 const environments = {
   production: 'https://rocktick.com',
-  local: 'http://localhost:3000',
+  local: 'http://localhost:9090',
 };
 type Environment = keyof typeof environments;
 
@@ -77,7 +77,7 @@ export interface ClientOptions {
    *
    * Each environment maps to a different base URL:
    * - `production` corresponds to `https://rocktick.com`
-   * - `local` corresponds to `http://localhost:3000`
+   * - `local` corresponds to `http://localhost:9090`
    */
   environment?: Environment | undefined;
 
