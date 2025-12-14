@@ -1,5 +1,5 @@
 {
-  "name": "rocktick",
+  "name": "@violetbuse/rocktick",
   "version": "0.0.1",
   "description": "The official TypeScript library for the Rocktick API",
   "author": "Rocktick <>",

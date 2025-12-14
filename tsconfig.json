@@ -8,8 +8,8 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "paths": {
-      "rocktick/*": ["./src/*"],
-      "rocktick": ["./src/index.ts"]
+      "@violetbuse/rocktick/*": ["./src/*"],
+      "@violetbuse/rocktick": ["./src/index.ts"]
     },
     "noEmit": true,
 

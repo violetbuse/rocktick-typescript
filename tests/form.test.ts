@@ -1,5 +1,5 @@
-import { multipartFormRequestOptions, createForm } from 'rocktick/internal/uploads';
-import { toFile } from 'rocktick/core/uploads';
+import { multipartFormRequestOptions, createForm } from '@violetbuse/rocktick/internal/uploads';
+import { toFile } from '@violetbuse/rocktick/core/uploads';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {
