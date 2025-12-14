@@ -13,6 +13,8 @@ import * as Shims from './internal/shims';
 import * as Opts from './internal/request-options';
 import { VERSION } from './version';
 import * as Errors from './core/error';
+import * as Pagination from './core/pagination';
+import { AbstractPage, type CursorPageParams, CursorPageResponse } from './core/pagination';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
@@ -22,6 +24,7 @@ import {
   CronJob,
   CronListParams,
   CronListResponse,
+  CronListResponsesCursorPage,
   CronUpdateParams,
   Request,
 } from './resources/cron';
@@ -29,6 +32,7 @@ import {
   Execution,
   ExecutionListParams,
   ExecutionListResponse,
+  ExecutionListResponsesCursorPage,
   Executions,
   Response,
 } from './resources/executions';
@@ -36,6 +40,7 @@ import {
   JobCreateParams,
   JobListParams,
   JobListResponse,
+  JobListResponsesCursorPage,
   JobUpdateParams,
   Jobs,
   OneOffJob,
@@ -507,6 +512,25 @@ export class Rocktick {
     return { response, options, controller, requestLogID, retryOfRequestLogID, startTime };
   }
 
+  getAPIList<Item, PageClass extends Pagination.AbstractPage<Item> = Pagination.AbstractPage<Item>>(
+    path: string,
+    Page: new (...args: any[]) => PageClass,
+    opts?: RequestOptions,
+  ): Pagination.PagePromise<PageClass, Item> {
+    return this.requestAPIList(Page, { method: 'get', path, ...opts });
+  }
+
+  requestAPIList<
+    Item = unknown,
+    PageClass extends Pagination.AbstractPage<Item> = Pagination.AbstractPage<Item>,
+  >(
+    Page: new (...args: ConstructorParameters<typeof Pagination.AbstractPage>) => PageClass,
+    options: FinalRequestOptions,
+  ): Pagination.PagePromise<PageClass, Item> {
+    const request = this.makeRequest(options, null, undefined);
+    return new Pagination.PagePromise<PageClass, Item>(this as any as Rocktick, request, Page);
+  }
+
   async fetchWithTimeout(
     url: RequestInfo,
     init: RequestInit | undefined,
@@ -755,11 +779,15 @@ Rocktick.Verify = Verify;
 export declare namespace Rocktick {
   export type RequestOptions = Opts.RequestOptions;
 
+  export import CursorPage = Pagination.CursorPage;
+  export { type CursorPageParams as CursorPageParams, type CursorPageResponse as CursorPageResponse };
+
   export {
     Cron as Cron,
     type CronJob as CronJob,
     type Request as Request,
     type CronListResponse as CronListResponse,
+    type CronListResponsesCursorPage as CronListResponsesCursorPage,
     type CronCreateParams as CronCreateParams,
     type CronUpdateParams as CronUpdateParams,
     type CronListParams as CronListParams,
@@ -770,6 +798,7 @@ export declare namespace Rocktick {
     type Execution as Execution,
     type Response as Response,
     type ExecutionListResponse as ExecutionListResponse,
+    type ExecutionListResponsesCursorPage as ExecutionListResponsesCursorPage,
     type ExecutionListParams as ExecutionListParams,
   };
 
@@ -777,6 +806,7 @@ export declare namespace Rocktick {
     Jobs as Jobs,
     type OneOffJob as OneOffJob,
     type JobListResponse as JobListResponse,
+    type JobListResponsesCursorPage as JobListResponsesCursorPage,
     type JobCreateParams as JobCreateParams,
     type JobUpdateParams as JobUpdateParams,
     type JobListParams as JobListParams,
