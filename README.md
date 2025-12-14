@@ -24,6 +24,7 @@ import Rocktick from '@violetbuse/rocktick';
 
 const client = new Rocktick({
   apiKey: process.env['ROCKTICK_API_KEY'], // This is the default and can be omitted
+  environment: 'local', // defaults to 'production'
 });
 
 const page = await client.cron.list();
@@ -42,6 +43,7 @@ import Rocktick from '@violetbuse/rocktick';
 
 const client = new Rocktick({
   apiKey: process.env['ROCKTICK_API_KEY'], // This is the default and can be omitted
+  environment: 'local', // defaults to 'production'
 });
 
 const [cronListResponse]: [Rocktick.CronListResponse] = await client.cron.list();

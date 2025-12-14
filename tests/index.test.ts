@@ -306,13 +306,26 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['ROCKTICK_BASE_URL'] = ''; // empty
       const client = new Rocktick({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://api.example.com');
+      expect(client.baseURL).toEqual('https://rocktick.com');
     });
 
     test('blank env variable', () => {
       process.env['ROCKTICK_BASE_URL'] = '  '; // blank
       const client = new Rocktick({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://api.example.com');
+      expect(client.baseURL).toEqual('https://rocktick.com');
+    });
+
+    test('env variable with environment', () => {
+      process.env['ROCKTICK_BASE_URL'] = 'https://example.com/from_env';
+
+      expect(
+        () => new Rocktick({ apiKey: 'My API Key', environment: 'production' }),
+      ).toThrowErrorMatchingInlineSnapshot(
+        `"Ambiguous URL; The \`baseURL\` option (or ROCKTICK_BASE_URL env var) and the \`environment\` option are given. If you want to use the environment you must pass baseURL: null"`,
+      );
+
+      const client = new Rocktick({ apiKey: 'My API Key', baseURL: null, environment: 'production' });
+      expect(client.baseURL).toEqual('https://rocktick.com');
     });
 
     test('in request options', () => {
