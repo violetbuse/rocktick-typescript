@@ -8,7 +8,6 @@ export {
   type CronCreateParams,
   type CronUpdateParams,
   type CronListParams,
-  type CronListResponsesCursorPage,
 } from './cron';
 export {
   Executions,
@@ -16,7 +15,6 @@ export {
   type Response,
   type ExecutionListResponse,
   type ExecutionListParams,
-  type ExecutionListResponsesCursorPage,
 } from './executions';
 export {
   Jobs,
@@ -25,7 +23,6 @@ export {
   type JobCreateParams,
   type JobUpdateParams,
   type JobListParams,
-  type JobListResponsesCursorPage,
 } from './jobs';
 export { Tenants, type Tenant, type TenantCreateParams, type TenantUpdateParams } from './tenants';
 export { Verify, type VerifyRetrieveResponse } from './verify';

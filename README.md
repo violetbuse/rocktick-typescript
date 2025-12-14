@@ -27,10 +27,9 @@ const client = new Rocktick({
   environment: 'local', // defaults to 'production'
 });
 
-const page = await client.cron.list();
-const cronListResponse = page.data[0];
+const crons = await client.cron.list();
 
-console.log(cronListResponse.id);
+console.log(crons.count);
 ```
 
 ### Request & Response types
@@ -46,7 +45,7 @@ const client = new Rocktick({
   environment: 'local', // defaults to 'production'
 });
 
-const [cronListResponse]: [Rocktick.CronListResponse] = await client.cron.list();
+const crons: Rocktick.CronListResponse = await client.cron.list();
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -59,7 +58,7 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const page = await client.cron.list().catch(async (err) => {
+const crons = await client.cron.list().catch(async (err) => {
   if (err instanceof Rocktick.APIError) {
     console.log(err.status); // 400
     console.log(err.name); // BadRequestError
@@ -125,37 +124,6 @@ On timeout, an `APIConnectionTimeoutError` is thrown.
 
 Note that requests which time out will be [retried twice by default](#retries).
 
-## Auto-pagination
-
-List methods in the Rocktick API are paginated.
-You can use the `for await … of` syntax to iterate through items across all pages:
-
-```ts
-async function fetchAllCronListResponses(params) {
-  const allCronListResponses = [];
-  // Automatically fetches more pages as needed.
-  for await (const cronListResponse of client.cron.list({ limit: 15 })) {
-    allCronListResponses.push(cronListResponse);
-  }
-  return allCronListResponses;
-}
-```
-
-Alternatively, you can request a single page at a time:
-
-```ts
-let page = await client.cron.list({ limit: 15 });
-for (const cronListResponse of page.data) {
-  console.log(cronListResponse);
-}
-
-// Convenience methods are provided for manually paginating:
-while (page.hasNextPage()) {
-  page = await page.getNextPage();
-  // ...
-}
-```
-
 ## Advanced Usage
 
 ### Accessing raw Response data (e.g., headers)
@@ -174,11 +142,9 @@ const response = await client.cron.list().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: page, response: raw } = await client.cron.list().withResponse();
+const { data: crons, response: raw } = await client.cron.list().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-for await (const cronListResponse of page) {
-  console.log(cronListResponse.id);
-}
+console.log(crons.count);
 ```
 
 ### Logging
