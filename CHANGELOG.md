@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 (2025-12-14)
+
+Full Changelog: [v0.1.19...v0.2.0](https://github.com/violetbuse/rocktick-typescript/compare/v0.1.19...v0.2.0)
+
+### Features
+
+* **api:** changed environment urls ([4527e28](https://github.com/violetbuse/rocktick-typescript/commit/4527e2840a4ef816f3ac9aad9dc4d19a794e6e1e))
+
 ## 0.1.19 (2025-12-14)
 
 Full Changelog: [v0.0.1...v0.1.19](https://github.com/violetbuse/rocktick-typescript/compare/v0.0.1...v0.1.19)
