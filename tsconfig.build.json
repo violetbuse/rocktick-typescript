@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "rocktick/*": ["./dist/src/*"],
-      "rocktick": ["./dist/src/index.ts"]
+      "@violetbuse/rocktick/*": ["./dist/src/*"],
+      "@violetbuse/rocktick": ["./dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,

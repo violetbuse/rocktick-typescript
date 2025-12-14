@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'rocktick/core/api-promise';
+import { APIPromise } from '@violetbuse/rocktick/core/api-promise';
 
 import util from 'node:util';
-import Rocktick from 'rocktick';
-import { APIUserAbortError } from 'rocktick';
+import Rocktick from '@violetbuse/rocktick';
+import { APIUserAbortError } from '@violetbuse/rocktick';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {

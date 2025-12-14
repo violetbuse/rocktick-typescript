@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { Rocktick } from 'rocktick';
+import { Rocktick } from '@violetbuse/rocktick';
 
 const { stringifyQuery } = Rocktick.prototype as any;
 
