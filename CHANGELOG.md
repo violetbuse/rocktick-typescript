@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0 (2025-12-14)
+
+Full Changelog: [v0.2.0...v0.3.0](https://github.com/violetbuse/rocktick-typescript/compare/v0.2.0...v0.3.0)
+
+### Features
+
+* **api:** added a param_location and reverted items to unknown ([f0786d9](https://github.com/violetbuse/rocktick-typescript/commit/f0786d9cb84e9c0493bf1be00f170997543356f1))
+* **api:** changed local dev url port ([bb178f4](https://github.com/violetbuse/rocktick-typescript/commit/bb178f4dea1e1a6dd636a9d2d29f87b160825354))
+* **api:** changed param location to query ([e368c76](https://github.com/violetbuse/rocktick-typescript/commit/e368c7670291b42674379f122daa3bc1d6025c77))
+
 ## 0.2.0 (2025-12-14)
 
 Full Changelog: [v0.1.19...v0.2.0](https://github.com/violetbuse/rocktick-typescript/compare/v0.1.19...v0.2.0)
