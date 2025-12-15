@@ -26,6 +26,7 @@ import {
   CronListResponse,
   CronListResponsesCursorPage,
   CronUpdateParams,
+  Request,
 } from './resources/cron';
 import {
   Execution,
@@ -33,6 +34,7 @@ import {
   ExecutionListResponse,
   ExecutionListResponsesCursorPage,
   Executions,
+  Response,
 } from './resources/executions';
 import {
   JobCreateParams,
@@ -807,6 +809,7 @@ export declare namespace Rocktick {
   export {
     Cron as Cron,
     type CronJob as CronJob,
+    type Request as Request,
     type CronListResponse as CronListResponse,
     type CronListResponsesCursorPage as CronListResponsesCursorPage,
     type CronCreateParams as CronCreateParams,
@@ -817,6 +820,7 @@ export declare namespace Rocktick {
   export {
     Executions as Executions,
     type Execution as Execution,
+    type Response as Response,
     type ExecutionListResponse as ExecutionListResponse,
     type ExecutionListResponsesCursorPage as ExecutionListResponsesCursorPage,
     type ExecutionListParams as ExecutionListParams,

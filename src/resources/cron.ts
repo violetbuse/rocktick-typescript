@@ -39,7 +39,7 @@ export interface CronJob {
 
   region: string;
 
-  request: CronJob.Request;
+  request: Request;
 
   schedule: string;
 
@@ -50,16 +50,14 @@ export interface CronJob {
   timeout_ms?: number | null;
 }
 
-export namespace CronJob {
-  export interface Request {
-    headers: { [key: string]: string };
+export interface Request {
+  headers: { [key: string]: string };
 
-    method: string;
+  method: string;
 
-    url: string;
+  url: string;
 
-    body?: string | null;
-  }
+  body?: string | null;
 }
 
 export interface CronListResponse {
@@ -71,7 +69,7 @@ export interface CronListResponse {
 
   region: string;
 
-  request: CronListResponse.Request;
+  request: Request;
 
   schedule: string;
 
@@ -82,20 +80,8 @@ export interface CronListResponse {
   timeout_ms?: number | null;
 }
 
-export namespace CronListResponse {
-  export interface Request {
-    headers: { [key: string]: string };
-
-    method: string;
-
-    url: string;
-
-    body?: string | null;
-  }
-}
-
 export interface CronCreateParams {
-  request: CronCreateParams.Request;
+  request: Request;
 
   schedule: string;
 
@@ -108,18 +94,6 @@ export interface CronCreateParams {
   timeout_ms?: number | null;
 }
 
-export namespace CronCreateParams {
-  export interface Request {
-    headers: { [key: string]: string };
-
-    method: string;
-
-    url: string;
-
-    body?: string | null;
-  }
-}
-
 export interface CronUpdateParams {
   max_response_bytes?: number | null;
 
@@ -127,23 +101,11 @@ export interface CronUpdateParams {
 
   region?: string | null;
 
-  request?: CronUpdateParams.Request | null;
+  request?: Request | null;
 
   schedule?: string | null;
 
   timeout_ms?: number | null;
-}
-
-export namespace CronUpdateParams {
-  export interface Request {
-    headers: { [key: string]: string };
-
-    method: string;
-
-    url: string;
-
-    body?: string | null;
-  }
 }
 
 export interface CronListParams extends CursorPageParams {}
@@ -151,6 +113,7 @@ export interface CronListParams extends CursorPageParams {}
 export declare namespace Cron {
   export {
     type CronJob as CronJob,
+    type Request as Request,
     type CronListResponse as CronListResponse,
     type CronListResponsesCursorPage as CronListResponsesCursorPage,
     type CronCreateParams as CronCreateParams,
