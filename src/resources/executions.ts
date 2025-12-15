@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../core/resource';
-import * as CronAPI from './cron';
 import { APIPromise } from '../core/api-promise';
 import { CursorPage, type CursorPageParams, PagePromise } from '../core/pagination';
 import { RequestOptions } from '../internal/request-options';
@@ -32,7 +31,7 @@ export interface Execution {
 
   region: string;
 
-  request: CronAPI.Request;
+  request: Execution.Request;
 
   scheduled_at: number;
 
@@ -44,7 +43,7 @@ export interface Execution {
 
   one_off_job_id?: string | null;
 
-  response?: Response | null;
+  response?: Execution.Response | null;
 
   response_error?: string | null;
 
@@ -57,12 +56,24 @@ export interface Execution {
   timeout_ms?: number | null;
 }
 
-export interface Response {
-  body: string;
+export namespace Execution {
+  export interface Request {
+    headers: { [key: string]: string };
 
-  headers: { [key: string]: string };
+    method: string;
 
-  status: number;
+    url: string;
+
+    body?: string | null;
+  }
+
+  export interface Response {
+    body: string;
+
+    headers: { [key: string]: string };
+
+    status: number;
+  }
 }
 
 export interface ExecutionListResponse {
@@ -72,7 +83,7 @@ export interface ExecutionListResponse {
 
   region: string;
 
-  request: CronAPI.Request;
+  request: ExecutionListResponse.Request;
 
   scheduled_at: number;
 
@@ -84,7 +95,7 @@ export interface ExecutionListResponse {
 
   one_off_job_id?: string | null;
 
-  response?: Response | null;
+  response?: ExecutionListResponse.Response | null;
 
   response_error?: string | null;
 
@@ -95,6 +106,26 @@ export interface ExecutionListResponse {
   tenant_id?: string | null;
 
   timeout_ms?: number | null;
+}
+
+export namespace ExecutionListResponse {
+  export interface Request {
+    headers: { [key: string]: string };
+
+    method: string;
+
+    url: string;
+
+    body?: string | null;
+  }
+
+  export interface Response {
+    body: string;
+
+    headers: { [key: string]: string };
+
+    status: number;
+  }
 }
 
 export interface ExecutionListParams extends CursorPageParams {
@@ -112,7 +143,6 @@ export interface ExecutionListParams extends CursorPageParams {
 export declare namespace Executions {
   export {
     type Execution as Execution,
-    type Response as Response,
     type ExecutionListResponse as ExecutionListResponse,
     type ExecutionListResponsesCursorPage as ExecutionListResponsesCursorPage,
     type ExecutionListParams as ExecutionListParams,
