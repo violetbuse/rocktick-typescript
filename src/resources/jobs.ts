@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../core/resource';
+import * as CronAPI from './cron';
 import * as ExecutionsAPI from './executions';
 import { APIPromise } from '../core/api-promise';
 import { CursorPage, type CursorPageParams, PagePromise } from '../core/pagination';
@@ -41,25 +42,13 @@ export interface OneOffJob {
 
   region: string;
 
-  request: OneOffJob.Request;
+  request: CronAPI.Request;
 
   max_response_bytes?: number | null;
 
   tenant_id?: string | null;
 
   timeout_ms?: number | null;
-}
-
-export namespace OneOffJob {
-  export interface Request {
-    headers: { [key: string]: string };
-
-    method: string;
-
-    url: string;
-
-    body?: string | null;
-  }
 }
 
 export interface JobListResponse {
@@ -73,7 +62,7 @@ export interface JobListResponse {
 
   region: string;
 
-  request: JobListResponse.Request;
+  request: CronAPI.Request;
 
   max_response_bytes?: number | null;
 
@@ -82,22 +71,10 @@ export interface JobListResponse {
   timeout_ms?: number | null;
 }
 
-export namespace JobListResponse {
-  export interface Request {
-    headers: { [key: string]: string };
-
-    method: string;
-
-    url: string;
-
-    body?: string | null;
-  }
-}
-
 export interface JobCreateParams {
   execute_at: number;
 
-  request: JobCreateParams.Request;
+  request: CronAPI.Request;
 
   max_response_bytes?: number | null;
 
@@ -106,18 +83,6 @@ export interface JobCreateParams {
   region?: string | null;
 
   timeout_ms?: number | null;
-}
-
-export namespace JobCreateParams {
-  export interface Request {
-    headers: { [key: string]: string };
-
-    method: string;
-
-    url: string;
-
-    body?: string | null;
-  }
 }
 
 export interface JobUpdateParams {
@@ -129,21 +94,9 @@ export interface JobUpdateParams {
 
   region?: string | null;
 
-  request?: JobUpdateParams.Request | null;
+  request?: CronAPI.Request | null;
 
   timeout_ms?: number | null;
-}
-
-export namespace JobUpdateParams {
-  export interface Request {
-    headers: { [key: string]: string };
-
-    method: string;
-
-    url: string;
-
-    body?: string | null;
-  }
 }
 
 export interface JobListParams extends CursorPageParams {}
