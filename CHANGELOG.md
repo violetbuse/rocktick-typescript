@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0 (2025-12-15)
+
+Full Changelog: [v0.3.0...v0.4.0](https://github.com/violetbuse/rocktick-typescript/compare/v0.3.0...v0.4.0)
+
+### Features
+
+* **api:** api update ([e26a11a](https://github.com/violetbuse/rocktick-typescript/commit/e26a11ad01244a3f03804e779dac28b20cd30bbb))
+
 ## 0.3.0 (2025-12-14)
 
 Full Changelog: [v0.2.0...v0.3.0](https://github.com/violetbuse/rocktick-typescript/compare/v0.2.0...v0.3.0)
