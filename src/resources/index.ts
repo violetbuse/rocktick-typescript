@@ -3,7 +3,6 @@
 export {
   Cron,
   type CronJob,
-  type Request,
   type CronListResponse,
   type CronCreateParams,
   type CronUpdateParams,
@@ -13,7 +12,6 @@ export {
 export {
   Executions,
   type Execution,
-  type Response,
   type ExecutionListResponse,
   type ExecutionListParams,
   type ExecutionListResponsesCursorPage,
