@@ -1,4 +1,4 @@
 configured_endpoints: 14
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/the-violet-company%2Frocktick-caee3e5758b046f0ad7805f18fe6e3c1dcdfec313fb597afc280e7433878b27c.yml
-openapi_spec_hash: ed05ce27ceec1a69b850a7097cb7bbd3
-config_hash: 41bea983ba6cd6183ebd9c01fe607f62
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/the-violet-company%2Frocktick-73b6744341d3877227fb2aed533a5791e005c06e917ae140c92abf19851e354a.yml
+openapi_spec_hash: ebbb3ef2dd1143a4e63a90dc597e2f55
+config_hash: e21a678a04ea81540de4aeb599b03187
