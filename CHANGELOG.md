@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.5.0 (2025-12-15)
+
+Full Changelog: [v0.4.0...v0.5.0](https://github.com/violetbuse/rocktick-typescript/compare/v0.4.0...v0.5.0)
+
+### Features
+
+* **api:** changed models request and response to HttpRequest and HttpResponse ([ef46a88](https://github.com/violetbuse/rocktick-typescript/commit/ef46a889199dcf3872f8e31812e0f284f64f6923))
+
+
+### Bug Fixes
+
+* **api:** changed names also to http_request and http_response ([f7ea14a](https://github.com/violetbuse/rocktick-typescript/commit/f7ea14a473c4c3c4cea0cef15927c2f7c4118cb1))
+
 ## 0.4.0 (2025-12-15)
 
 Full Changelog: [v0.3.0...v0.4.0](https://github.com/violetbuse/rocktick-typescript/compare/v0.3.0...v0.4.0)
