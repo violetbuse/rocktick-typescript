@@ -32,7 +32,7 @@ export interface Execution {
 
   region: string;
 
-  request: CronAPI.Request;
+  request: CronAPI.HTTPRequest;
 
   scheduled_at: number;
 
@@ -44,7 +44,7 @@ export interface Execution {
 
   one_off_job_id?: string | null;
 
-  response?: Response | null;
+  response?: HTTPResponse | null;
 
   response_error?: string | null;
 
@@ -57,7 +57,7 @@ export interface Execution {
   timeout_ms?: number | null;
 }
 
-export interface Response {
+export interface HTTPResponse {
   body: string;
 
   headers: { [key: string]: string };
@@ -72,7 +72,7 @@ export interface ExecutionListResponse {
 
   region: string;
 
-  request: CronAPI.Request;
+  request: CronAPI.HTTPRequest;
 
   scheduled_at: number;
 
@@ -84,7 +84,7 @@ export interface ExecutionListResponse {
 
   one_off_job_id?: string | null;
 
-  response?: Response | null;
+  response?: HTTPResponse | null;
 
   response_error?: string | null;
 
@@ -112,7 +112,7 @@ export interface ExecutionListParams extends CursorPageParams {
 export declare namespace Executions {
   export {
     type Execution as Execution,
-    type Response as Response,
+    type HTTPResponse as HTTPResponse,
     type ExecutionListResponse as ExecutionListResponse,
     type ExecutionListResponsesCursorPage as ExecutionListResponsesCursorPage,
     type ExecutionListParams as ExecutionListParams,

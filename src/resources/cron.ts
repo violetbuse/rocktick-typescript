@@ -39,7 +39,7 @@ export interface CronJob {
 
   region: string;
 
-  request: Request;
+  request: HTTPRequest;
 
   schedule: string;
 
@@ -50,7 +50,7 @@ export interface CronJob {
   timeout_ms?: number | null;
 }
 
-export interface Request {
+export interface HTTPRequest {
   headers: { [key: string]: string };
 
   method: string;
@@ -69,7 +69,7 @@ export interface CronListResponse {
 
   region: string;
 
-  request: Request;
+  request: HTTPRequest;
 
   schedule: string;
 
@@ -81,7 +81,7 @@ export interface CronListResponse {
 }
 
 export interface CronCreateParams {
-  request: Request;
+  request: HTTPRequest;
 
   schedule: string;
 
@@ -101,7 +101,7 @@ export interface CronUpdateParams {
 
   region?: string | null;
 
-  request?: Request | null;
+  request?: HTTPRequest | null;
 
   schedule?: string | null;
 
@@ -113,7 +113,7 @@ export interface CronListParams extends CursorPageParams {}
 export declare namespace Cron {
   export {
     type CronJob as CronJob,
-    type Request as Request,
+    type HTTPRequest as HTTPRequest,
     type CronListResponse as CronListResponse,
     type CronListResponsesCursorPage as CronListResponsesCursorPage,
     type CronCreateParams as CronCreateParams,

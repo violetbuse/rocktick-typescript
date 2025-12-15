@@ -3,7 +3,7 @@
 Types:
 
 - <code><a href="./src/resources/cron.ts">CronJob</a></code>
-- <code><a href="./src/resources/cron.ts">Request</a></code>
+- <code><a href="./src/resources/cron.ts">HTTPRequest</a></code>
 - <code><a href="./src/resources/cron.ts">CronListResponse</a></code>
 
 Methods:
@@ -18,7 +18,7 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/executions.ts">Execution</a></code>
-- <code><a href="./src/resources/executions.ts">Response</a></code>
+- <code><a href="./src/resources/executions.ts">HTTPResponse</a></code>
 - <code><a href="./src/resources/executions.ts">ExecutionListResponse</a></code>
 
 Methods:

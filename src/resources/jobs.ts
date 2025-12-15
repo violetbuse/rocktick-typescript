@@ -42,7 +42,7 @@ export interface OneOffJob {
 
   region: string;
 
-  request: CronAPI.Request;
+  request: CronAPI.HTTPRequest;
 
   max_response_bytes?: number | null;
 
@@ -62,7 +62,7 @@ export interface JobListResponse {
 
   region: string;
 
-  request: CronAPI.Request;
+  request: CronAPI.HTTPRequest;
 
   max_response_bytes?: number | null;
 
@@ -74,7 +74,7 @@ export interface JobListResponse {
 export interface JobCreateParams {
   execute_at: number;
 
-  request: CronAPI.Request;
+  request: CronAPI.HTTPRequest;
 
   max_response_bytes?: number | null;
 
@@ -94,7 +94,7 @@ export interface JobUpdateParams {
 
   region?: string | null;
 
-  request?: CronAPI.Request | null;
+  request?: CronAPI.HTTPRequest | null;
 
   timeout_ms?: number | null;
 }
