@@ -72,6 +72,8 @@ export interface ClientOptions {
    */
   apiKey?: string | undefined;
 
+  tenantID?: string | null | undefined;
+
   /**
    * Specifies the environment to use for the API.
    *
@@ -155,6 +157,7 @@ export interface ClientOptions {
  */
 export class Rocktick {
   apiKey: string;
+  tenantID: string | null;
 
   baseURL: string;
   maxRetries: number;
@@ -172,6 +175,7 @@ export class Rocktick {
    * API Client for interfacing with the Rocktick API.
    *
    * @param {string | undefined} [opts.apiKey=process.env['ROCKTICK_API_KEY'] ?? undefined]
+   * @param {string | null | undefined} [opts.tenantID]
    * @param {Environment} [opts.environment=production] - Specifies the environment URL to use for the API.
    * @param {string} [opts.baseURL=process.env['ROCKTICK_BASE_URL'] ?? https://rocktick.com] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
@@ -184,6 +188,7 @@ export class Rocktick {
   constructor({
     baseURL = readEnv('ROCKTICK_BASE_URL'),
     apiKey = readEnv('ROCKTICK_API_KEY'),
+    tenantID = null,
     ...opts
   }: ClientOptions = {}) {
     if (apiKey === undefined) {
@@ -194,6 +199,7 @@ export class Rocktick {
 
     const options: ClientOptions = {
       apiKey,
+      tenantID,
       ...opts,
       baseURL,
       environment: opts.environment ?? 'production',
@@ -223,6 +229,7 @@ export class Rocktick {
     this._options = options;
 
     this.apiKey = apiKey;
+    this.tenantID = tenantID;
   }
 
   /**
@@ -240,6 +247,7 @@ export class Rocktick {
       fetch: this.fetch,
       fetchOptions: this.fetchOptions,
       apiKey: this.apiKey,
+      tenantID: this.tenantID,
       ...options,
     });
     return client;
@@ -719,6 +727,7 @@ export class Rocktick {
         'X-Stainless-Retry-Count': String(retryCount),
         ...(options.timeout ? { 'X-Stainless-Timeout': String(Math.trunc(options.timeout / 1000)) } : {}),
         ...getPlatformHeaders(),
+        'Tenant-Id': this.tenantID,
       },
       await this.authHeaders(options),
       this._options.defaultHeaders,
