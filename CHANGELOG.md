@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.0 (2025-12-17)
+
+Full Changelog: [v0.5.0...v0.6.0](https://github.com/violetbuse/rocktick-typescript/compare/v0.5.0...v0.6.0)
+
+### Features
+
+* **api:** added tenant id to client settings ([cb8501f](https://github.com/violetbuse/rocktick-typescript/commit/cb8501f7e2b66cd83c77f6dac3c10b68bd000b50))
+
 ## 0.5.0 (2025-12-15)
 
 Full Changelog: [v0.4.0...v0.5.0](https://github.com/violetbuse/rocktick-typescript/compare/v0.4.0...v0.5.0)
