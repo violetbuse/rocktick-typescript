@@ -61,7 +61,7 @@ import {
 import { isEmptyObj } from './internal/utils/values';
 
 const environments = {
-  production: 'https://rocktick.com',
+  production: 'https://cloud.rocktick.com',
   local: 'http://localhost:9090',
 };
 type Environment = keyof typeof environments;
@@ -78,7 +78,7 @@ export interface ClientOptions {
    * Specifies the environment to use for the API.
    *
    * Each environment maps to a different base URL:
-   * - `production` corresponds to `https://rocktick.com`
+   * - `production` corresponds to `https://cloud.rocktick.com`
    * - `local` corresponds to `http://localhost:9090`
    */
   environment?: Environment | undefined;
@@ -177,7 +177,7 @@ export class Rocktick {
    * @param {string | undefined} [opts.apiKey=process.env['ROCKTICK_API_KEY'] ?? undefined]
    * @param {string | null | undefined} [opts.tenantID]
    * @param {Environment} [opts.environment=production] - Specifies the environment URL to use for the API.
-   * @param {string} [opts.baseURL=process.env['ROCKTICK_BASE_URL'] ?? https://rocktick.com] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['ROCKTICK_BASE_URL'] ?? https://cloud.rocktick.com] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
    * @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
