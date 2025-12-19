@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.0 (2025-12-19)
+
+Full Changelog: [v0.6.0...v0.7.0](https://github.com/violetbuse/rocktick-typescript/compare/v0.6.0...v0.7.0)
+
+### Features
+
+* **api:** changed production from rocktick.com to cloud.rocktick.com ([15bdf7e](https://github.com/violetbuse/rocktick-typescript/commit/15bdf7e726e90cd15756ade06479363ba667b1da))
+
 ## 0.6.0 (2025-12-17)
 
 Full Changelog: [v0.5.0...v0.6.0](https://github.com/violetbuse/rocktick-typescript/compare/v0.5.0...v0.6.0)
