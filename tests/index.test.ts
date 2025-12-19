@@ -306,13 +306,13 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['ROCKTICK_BASE_URL'] = ''; // empty
       const client = new Rocktick({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://rocktick.com');
+      expect(client.baseURL).toEqual('https://cloud.rocktick.com');
     });
 
     test('blank env variable', () => {
       process.env['ROCKTICK_BASE_URL'] = '  '; // blank
       const client = new Rocktick({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://rocktick.com');
+      expect(client.baseURL).toEqual('https://cloud.rocktick.com');
     });
 
     test('env variable with environment', () => {
@@ -325,7 +325,7 @@ describe('instantiate client', () => {
       );
 
       const client = new Rocktick({ apiKey: 'My API Key', baseURL: null, environment: 'production' });
-      expect(client.baseURL).toEqual('https://rocktick.com');
+      expect(client.baseURL).toEqual('https://cloud.rocktick.com');
     });
 
     test('in request options', () => {
