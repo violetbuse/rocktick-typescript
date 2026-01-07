@@ -12,7 +12,11 @@ describe('resource jobs', () => {
   test.skip('create: only required params', async () => {
     const responsePromise = client.jobs.create({
       execute_at: 0,
-      request: { headers: { foo: 'string' }, method: 'method', url: 'url' },
+      request: {
+        headers: { foo: 'string' },
+        method: 'method',
+        url: 'url',
+      },
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -27,7 +31,12 @@ describe('resource jobs', () => {
   test.skip('create: required and optional params', async () => {
     const response = await client.jobs.create({
       execute_at: 0,
-      request: { headers: { foo: 'string' }, method: 'method', url: 'url', body: 'body' },
+      request: {
+        headers: { foo: 'string' },
+        method: 'method',
+        url: 'url',
+        body: 'body',
+      },
       max_response_bytes: 0,
       max_retries: 0,
       region: 'region',
