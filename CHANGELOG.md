@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.1 (2026-01-07)
+
+Full Changelog: [v0.7.0...v0.7.1](https://github.com/violetbuse/rocktick-typescript/compare/v0.7.0...v0.7.1)
+
+### Chores
+
+* break long lines in snippets into multiline ([1150316](https://github.com/violetbuse/rocktick-typescript/commit/1150316a3aea52b512984160d65d2ccfbdcc97f8))
+* **internal:** codegen related update ([22dd20b](https://github.com/violetbuse/rocktick-typescript/commit/22dd20b8531b0e1fe01015c8d42b751e5006f4dd))
+
 ## 0.7.0 (2025-12-19)
 
 Full Changelog: [v0.6.0...v0.7.0](https://github.com/violetbuse/rocktick-typescript/compare/v0.6.0...v0.7.0)
