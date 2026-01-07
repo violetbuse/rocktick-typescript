@@ -11,7 +11,11 @@ describe('resource cron', () => {
   // Prism tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.cron.create({
-      request: { headers: { foo: 'string' }, method: 'method', url: 'url' },
+      request: {
+        headers: { foo: 'string' },
+        method: 'method',
+        url: 'url',
+      },
       schedule: 'schedule',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -26,7 +30,12 @@ describe('resource cron', () => {
   // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.cron.create({
-      request: { headers: { foo: 'string' }, method: 'method', url: 'url', body: 'body' },
+      request: {
+        headers: { foo: 'string' },
+        method: 'method',
+        url: 'url',
+        body: 'body',
+      },
       schedule: 'schedule',
       max_response_bytes: 0,
       max_retries: 0,

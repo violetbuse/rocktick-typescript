@@ -87,7 +87,11 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      const client = new Rocktick({ logger: logger, logLevel: 'debug', apiKey: 'My API Key' });
+      const client = new Rocktick({
+        logger: logger,
+        logLevel: 'debug',
+        apiKey: 'My API Key',
+      });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).toHaveBeenCalled();
@@ -107,7 +111,11 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      const client = new Rocktick({ logger: logger, logLevel: 'info', apiKey: 'My API Key' });
+      const client = new Rocktick({
+        logger: logger,
+        logLevel: 'info',
+        apiKey: 'My API Key',
+      });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).not.toHaveBeenCalled();
@@ -157,7 +165,11 @@ describe('instantiate client', () => {
       };
 
       process.env['ROCKTICK_LOG'] = 'debug';
-      const client = new Rocktick({ logger: logger, logLevel: 'off', apiKey: 'My API Key' });
+      const client = new Rocktick({
+        logger: logger,
+        logLevel: 'off',
+        apiKey: 'My API Key',
+      });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).not.toHaveBeenCalled();
@@ -173,7 +185,11 @@ describe('instantiate client', () => {
       };
 
       process.env['ROCKTICK_LOG'] = 'not a log level';
-      const client = new Rocktick({ logger: logger, logLevel: 'debug', apiKey: 'My API Key' });
+      const client = new Rocktick({
+        logger: logger,
+        logLevel: 'debug',
+        apiKey: 'My API Key',
+      });
       expect(client.logLevel).toBe('debug');
       expect(warnMock).not.toHaveBeenCalled();
     });
@@ -324,7 +340,11 @@ describe('instantiate client', () => {
         `"Ambiguous URL; The \`baseURL\` option (or ROCKTICK_BASE_URL env var) and the \`environment\` option are given. If you want to use the environment you must pass baseURL: null"`,
       );
 
-      const client = new Rocktick({ apiKey: 'My API Key', baseURL: null, environment: 'production' });
+      const client = new Rocktick({
+        apiKey: 'My API Key',
+        baseURL: null,
+        environment: 'production',
+      });
       expect(client.baseURL).toEqual('https://cloud.rocktick.com');
     });
 
@@ -362,7 +382,11 @@ describe('instantiate client', () => {
 
   describe('withOptions', () => {
     test('creates a new client with overridden options', async () => {
-      const client = new Rocktick({ baseURL: 'http://localhost:5000/', maxRetries: 3, apiKey: 'My API Key' });
+      const client = new Rocktick({
+        baseURL: 'http://localhost:5000/',
+        maxRetries: 3,
+        apiKey: 'My API Key',
+      });
 
       const newClient = client.withOptions({
         maxRetries: 5,
@@ -402,7 +426,11 @@ describe('instantiate client', () => {
     });
 
     test('respects runtime property changes when creating new client', () => {
-      const client = new Rocktick({ baseURL: 'http://localhost:5000/', timeout: 1000, apiKey: 'My API Key' });
+      const client = new Rocktick({
+        baseURL: 'http://localhost:5000/',
+        timeout: 1000,
+        apiKey: 'My API Key',
+      });
 
       // Modify the client properties directly after creation
       client.baseURL = 'http://localhost:6000/';
@@ -548,7 +576,11 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Rocktick({ apiKey: 'My API Key', timeout: 10, fetch: testFetch });
+    const client = new Rocktick({
+      apiKey: 'My API Key',
+      timeout: 10,
+      fetch: testFetch,
+    });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -578,7 +610,11 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Rocktick({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
+    const client = new Rocktick({
+      apiKey: 'My API Key',
+      fetch: testFetch,
+      maxRetries: 4,
+    });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
 
@@ -602,7 +638,11 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Rocktick({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
+    const client = new Rocktick({
+      apiKey: 'My API Key',
+      fetch: testFetch,
+      maxRetries: 4,
+    });
 
     expect(
       await client.request({
@@ -664,7 +704,11 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Rocktick({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
+    const client = new Rocktick({
+      apiKey: 'My API Key',
+      fetch: testFetch,
+      maxRetries: 4,
+    });
 
     expect(
       await client.request({
