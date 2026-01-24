@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.7.1 (2026-01-24)
+
+Full Changelog: [v0.7.0...v0.7.1](https://github.com/violetbuse/rocktick-typescript/compare/v0.7.0...v0.7.1)
+
+### Chores
+
+* break long lines in snippets into multiline ([1150316](https://github.com/violetbuse/rocktick-typescript/commit/1150316a3aea52b512984160d65d2ccfbdcc97f8))
+* **ci:** upgrade `actions/github-script` ([d880fbc](https://github.com/violetbuse/rocktick-typescript/commit/d880fbc3e53b946447d2c2a5db5a430e1183e465))
+* **internal:** codegen related update ([22dd20b](https://github.com/violetbuse/rocktick-typescript/commit/22dd20b8531b0e1fe01015c8d42b751e5006f4dd))
+* **internal:** update `actions/checkout` version ([af6dca0](https://github.com/violetbuse/rocktick-typescript/commit/af6dca0856f96699dd5991b9add954809ed3b712))
+* **internal:** update lock file ([98a9a3c](https://github.com/violetbuse/rocktick-typescript/commit/98a9a3ca649b8a5867b8d65d00b540c11a41cdd6))
+* **internal:** upgrade babel, qs, js-yaml ([bcde964](https://github.com/violetbuse/rocktick-typescript/commit/bcde964656540248ad55e9b50db5838411e6b971))
+* **internal:** upgrade brace-expansion and @babel/helpers ([3f96eda](https://github.com/violetbuse/rocktick-typescript/commit/3f96eda3a9947d5040080fbe9b0280d40338044e))
+
 ## 0.7.0 (2025-12-19)
 
 Full Changelog: [v0.6.0...v0.7.0](https://github.com/violetbuse/rocktick-typescript/compare/v0.6.0...v0.7.0)
