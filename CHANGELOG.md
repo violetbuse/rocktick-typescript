@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.7.2 (2026-02-06)
+
+Full Changelog: [v0.7.1...v0.7.2](https://github.com/violetbuse/rocktick-typescript/compare/v0.7.1...v0.7.2)
+
+### Bug Fixes
+
+* **client:** avoid removing abort listener too early ([9e7fe08](https://github.com/violetbuse/rocktick-typescript/commit/9e7fe08c16c12cffce230290521d0ab918b414f8))
+
+
+### Chores
+
+* **client:** do not parse responses with empty content-length ([7ae6923](https://github.com/violetbuse/rocktick-typescript/commit/7ae6923a7cd1ff879462a5ecabab648e40c85bc1))
+* **client:** restructure abort controller binding ([cd7b486](https://github.com/violetbuse/rocktick-typescript/commit/cd7b4860540afc267ff69d39297ffd9c9371d3cc))
+
 ## 0.7.1 (2026-02-03)
 
 Full Changelog: [v0.7.0...v0.7.1](https://github.com/violetbuse/rocktick-typescript/compare/v0.7.0...v0.7.1)
