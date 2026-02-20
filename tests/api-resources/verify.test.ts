@@ -8,7 +8,7 @@ const client = new Rocktick({
 });
 
 describe('resource verify', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('retrieve', async () => {
     const responsePromise = client.verify.retrieve('job_id');
     const rawResponse = await responsePromise.asResponse();
