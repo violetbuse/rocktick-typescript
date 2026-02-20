@@ -8,7 +8,7 @@ const client = new Rocktick({
 });
 
 describe('resource tenants', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.tenants.create({
       default_retries: 0,
@@ -27,7 +27,7 @@ describe('resource tenants', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.tenants.create({
       default_retries: 0,
@@ -39,7 +39,7 @@ describe('resource tenants', () => {
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('retrieve', async () => {
     const responsePromise = client.tenants.retrieve('tenant_id');
     const rawResponse = await responsePromise.asResponse();
@@ -51,7 +51,7 @@ describe('resource tenants', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('update', async () => {
     const responsePromise = client.tenants.update('tenant_id', {});
     const rawResponse = await responsePromise.asResponse();
