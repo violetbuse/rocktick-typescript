@@ -60,7 +60,7 @@ $ yarn link @violetbuse/rocktick
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global @violetbuse/rocktick
+$ pnpm link --global @violetbuse/rocktick
 ```
 
 ## Running tests
