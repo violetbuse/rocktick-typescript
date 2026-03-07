@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.7.4 (2026-03-07)
+
+Full Changelog: [v0.7.3...v0.7.4](https://github.com/violetbuse/rocktick-typescript/compare/v0.7.3...v0.7.4)
+
+### Bug Fixes
+
+* **client:** preserve URL params already embedded in path ([c55647f](https://github.com/violetbuse/rocktick-typescript/commit/c55647f16e3f82931dbd8f85c622b4fef7052c80))
+
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([31df6b3](https://github.com/violetbuse/rocktick-typescript/commit/31df6b3a6c77e48cf33860a38bb24e22723761f1))
+* **internal:** codegen related update ([98edcd9](https://github.com/violetbuse/rocktick-typescript/commit/98edcd99219fb892b4ad778f94922b756e11764a))
+* **internal:** move stringifyQuery implementation to internal function ([a39d9e3](https://github.com/violetbuse/rocktick-typescript/commit/a39d9e39db3556c11ffc03e54105176e06ca11ef))
+
 ## 0.7.3 (2026-02-24)
 
 Full Changelog: [v0.7.2...v0.7.3](https://github.com/violetbuse/rocktick-typescript/compare/v0.7.2...v0.7.3)
