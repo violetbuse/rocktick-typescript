@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.8.0 (2026-04-28)
+
+Full Changelog: [v0.7.4...v0.8.0](https://github.com/violetbuse/rocktick-typescript/compare/v0.7.4...v0.8.0)
+
+### Features
+
+* support setting headers via env ([842ffb1](https://github.com/violetbuse/rocktick-typescript/commit/842ffb12d263d45ade062dbf2afccc7168e746b5))
+
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([5e54a4d](https://github.com/violetbuse/rocktick-typescript/commit/5e54a4df4521df9cbd3c7194e7fbcb78edc03f31))
+* **internal:** codegen related update ([770ae2a](https://github.com/violetbuse/rocktick-typescript/commit/770ae2a204b2cc575244b039844bb84c9253f870))
+* **internal:** codegen related update ([1eda2e7](https://github.com/violetbuse/rocktick-typescript/commit/1eda2e71451147ff54da4c5115a7746adc2af15e))
+* **internal:** more robust bootstrap script ([d58ea3f](https://github.com/violetbuse/rocktick-typescript/commit/d58ea3f2bd597ef5653f68a07b4a9cc56ebabef9))
+* **internal:** tweak CI branches ([1dcb16a](https://github.com/violetbuse/rocktick-typescript/commit/1dcb16abc50f3ec02bbd1e86c782bd205894a97e))
+* **internal:** update dependencies to address dependabot vulnerabilities ([6331c1a](https://github.com/violetbuse/rocktick-typescript/commit/6331c1ab0d455a3968692b2a14ac5c8ae3213e2f))
+* **internal:** update gitignore ([bd1f6fd](https://github.com/violetbuse/rocktick-typescript/commit/bd1f6fdce44d506827967e3a2833e1f219be8c99))
+
 ## 0.7.4 (2026-03-07)
 
 Full Changelog: [v0.7.3...v0.7.4](https://github.com/violetbuse/rocktick-typescript/compare/v0.7.3...v0.7.4)
