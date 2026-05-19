@@ -1,7 +1,6 @@
 import fs from 'fs';
 import type { ResponseLike } from '@violetbuse/rocktick/internal/to-file';
 import { toFile } from '@violetbuse/rocktick/core/uploads';
-import { File } from 'node:buffer';
 
 class MyClass {
   name: string = 'foo';
