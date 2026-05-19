@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.8.1 (2026-05-19)
+
+Full Changelog: [v0.8.0...v0.8.1](https://github.com/violetbuse/rocktick-typescript/compare/v0.8.0...v0.8.1)
+
+### Bug Fixes
+
+* **typescript:** upgrade tsc-multi so that it works with Node 26 ([be7a26a](https://github.com/violetbuse/rocktick-typescript/commit/be7a26a7d44e8c3e681113bd4435db9bbbae262a))
+
+
+### Chores
+
+* **format:** run eslint and prettier separately ([1ccbac1](https://github.com/violetbuse/rocktick-typescript/commit/1ccbac1e04b900e24e1c38b9e68ac3afdc90fa60))
+* redact api-key headers in debug logs ([f84f6e7](https://github.com/violetbuse/rocktick-typescript/commit/f84f6e7cd8f4b1406dab245fd80355a1bb819f5d))
+* **tests:** remove redundant File import ([b0a53d1](https://github.com/violetbuse/rocktick-typescript/commit/b0a53d1a186feb85a43d342927da65e960f162b9))
+
 ## 0.8.0 (2026-04-28)
 
 Full Changelog: [v0.7.4...v0.8.0](https://github.com/violetbuse/rocktick-typescript/compare/v0.7.4...v0.8.0)
