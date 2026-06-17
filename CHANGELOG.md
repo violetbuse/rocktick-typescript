@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.8.2 (2026-06-17)
+
+Full Changelog: [v0.8.1...v0.8.2](https://github.com/violetbuse/rocktick-typescript/compare/v0.8.1...v0.8.2)
+
+### Bug Fixes
+
+* **client:** send content-type header for requests with an omitted optional body ([daba485](https://github.com/violetbuse/rocktick-typescript/commit/daba485eacd7a9eb3cbf6c843b642e774500096b))
+
 ## 0.8.1 (2026-05-19)
 
 Full Changelog: [v0.8.0...v0.8.1](https://github.com/violetbuse/rocktick-typescript/compare/v0.8.0...v0.8.1)
