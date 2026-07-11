@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.8.3 (2026-07-11)
+
+Full Changelog: [v0.8.2...v0.8.3](https://github.com/violetbuse/rocktick-typescript/compare/v0.8.2...v0.8.3)
+
+### Bug Fixes
+
+* **ci:** bump @arethetypeswrong/cli to ^0.18.0 and run CI workflows on Node 24 ([04de7d7](https://github.com/violetbuse/rocktick-typescript/commit/04de7d73856cab1afe5855d5d9a06a43602d5544))
+
 ## 0.8.2 (2026-06-17)
 
 Full Changelog: [v0.8.1...v0.8.2](https://github.com/violetbuse/rocktick-typescript/compare/v0.8.1...v0.8.2)
