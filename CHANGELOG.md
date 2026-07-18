@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0 (2026-07-18)
+
+Full Changelog: [v0.8.3...v0.9.0](https://github.com/violetbuse/rocktick-typescript/compare/v0.8.3...v0.9.0)
+
+### Features
+
+* **stlc:** configurable CI runner and private-production-repo support in workflow templates ([f44fc74](https://github.com/violetbuse/rocktick-typescript/commit/f44fc74e968acd4073cbdbb56118857c744ce63e))
+
 ## 0.8.3 (2026-07-11)
 
 Full Changelog: [v0.8.2...v0.8.3](https://github.com/violetbuse/rocktick-typescript/compare/v0.8.2...v0.8.3)
